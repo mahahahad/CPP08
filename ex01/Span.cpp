@@ -32,6 +32,22 @@ void    Span::addNumber(int num) {
     _arr.push_back(num);
 }
 
+/**
+ * @brief Add multiple numbers to the span through a single call.
+ * 
+ * Uses the provided iterators to loop through the container with the numbers
+ * and add those to the span.
+ * 
+ * @param beginIt The iterator representing the start of the elements
+ * @param endIt The iterator representing the element after the last element
+ */
+void    Span::addNumbers(
+    std::vector<int>::iterator beginIt,
+    std::vector<int>::iterator endIt
+) {
+    _arr.insert(_arr.end(), beginIt, endIt);
+}
+
 int Span::shortestSpan(void) {
     if (_arr.empty() || _arr.size() == 1) 
         throw Span::CalculationException();

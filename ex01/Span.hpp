@@ -13,13 +13,12 @@ class   Span {
         Span&   operator=( const Span& copy );
         ~Span();
         void    addNumber( int newNum );
+        void    addNumbers(
+            std::vector<int>::iterator beginIt,
+            std::vector<int>::iterator endIt
+        );
         int     shortestSpan();
         int     longestSpan();
-        /*
-        TODO:
-            Implement a member function to add multiple numbers to your 
-            Span in a single call
-        */
 
     public:
         class   CalculationException: public std::exception {
