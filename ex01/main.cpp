@@ -2,6 +2,16 @@
 
 int main(void) {
     {
+        Span sp(10);
+        sp.addNumber(4);
+        sp.addNumber(2);
+        sp.addNumber(3);
+
+        Span test = sp;
+        std::cout << test.longestSpan() << std::endl;
+        std::cout << test.shortestSpan() << std::endl;
+    }
+    {
         Span sp(10000);
 
         for (int i = 0; i <= 10000; i+=2) {

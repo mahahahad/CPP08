@@ -11,14 +11,14 @@ class   Span {
         Span( unsigned int n );
         Span( const Span& copy );
         Span&   operator=( const Span& copy );
-        ~Span();
+        ~Span( void );
         void    addNumber( int newNum );
         void    addNumbers(
             std::vector<int>::iterator beginIt,
             std::vector<int>::iterator endIt
         );
-        int     shortestSpan();
-        int     longestSpan();
+        int     shortestSpan() const;
+        int     longestSpan() const;
 
     public:
         class   CalculationException: public std::exception {

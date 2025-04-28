@@ -1,14 +1,13 @@
 #include "Span.hpp"
 
 Span::Span(unsigned int n): _maxLimit(n) { }
-Span::Span(const Span& copy) {
-    (void) copy;
-}
+Span::Span(const Span& copy): _maxLimit(copy._maxLimit), _arr(copy._arr) { }
 Span&   Span::operator=(const Span& copy) {
-    (void) copy;
+    _maxLimit = copy._maxLimit;
+    _arr = copy._arr;
     return (*this);
 }
-Span::~Span() { }
+Span::~Span(void) { }
 
 const char  *Span::OverfillException::what() const throw() {
     return ("The limit of numbers in the span has been exceeded.");
@@ -48,7 +47,7 @@ void    Span::addNumbers(
     _arr.insert(_arr.end(), beginIt, endIt);
 }
 
-int Span::shortestSpan(void) {
+int Span::shortestSpan(void) const {
     if (_arr.empty() || _arr.size() == 1) 
         throw Span::CalculationException();
     std::sort(_arr.begin(), _arr.end());
@@ -60,7 +59,7 @@ int Span::shortestSpan(void) {
     return (min);
 }
 
-int Span::longestSpan(void) {
+int Span::longestSpan(void) const {
     if (_arr.empty() || _arr.size() == 1) 
         throw Span::CalculationException();
     std::sort(_arr.begin(), _arr.end());
