@@ -47,7 +47,7 @@ void    Span::addNumbers(
     _arr.insert(_arr.end(), beginIt, endIt);
 }
 
-int Span::shortestSpan(void) const {
+int Span::shortestSpan(void) {
     if (_arr.empty() || _arr.size() == 1) 
         throw Span::CalculationException();
     std::sort(_arr.begin(), _arr.end());
@@ -59,9 +59,15 @@ int Span::shortestSpan(void) const {
     return (min);
 }
 
-int Span::longestSpan(void) const {
+int Span::longestSpan(void) {
     if (_arr.empty() || _arr.size() == 1) 
         throw Span::CalculationException();
     std::sort(_arr.begin(), _arr.end());
     return (*(_arr.end() - 1) - _arr[0]);
+}
+
+void    Span::print(void) const {
+    for (unsigned int i = 0; i < _arr.size(); i++) {
+        std::cout << _arr[i] << (i == _arr.size() - 1 ? "\n" : ", ");
+    }
 }

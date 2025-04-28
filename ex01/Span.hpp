@@ -17,8 +17,9 @@ class   Span {
             std::vector<int>::iterator beginIt,
             std::vector<int>::iterator endIt
         );
-        int     shortestSpan() const;
-        int     longestSpan() const;
+        int     shortestSpan( void );
+        int     longestSpan( void );
+        void    print( void ) const;
 
     public:
         class   CalculationException: public std::exception {
